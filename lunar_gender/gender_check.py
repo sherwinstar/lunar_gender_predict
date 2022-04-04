@@ -8,7 +8,7 @@ from gender_predict import GenderPredict
 
 class GenderCheck:
     def __init__(self, argv):
-        if len(argv) == 0 or not isinstance(argv, list):
+        if not isinstance(argv, list) or len(argv) == 0:
             print('input is not right')
             sys.exit(2)
             pass
