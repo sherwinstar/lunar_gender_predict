@@ -3,7 +3,7 @@
 import sys
 from datetime import datetime
 
-from gender_predict import GenderPredict
+from predict.gender_predict import GenderPredict
 
 
 class GenderCheck:

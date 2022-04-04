@@ -4,7 +4,7 @@ import getopt
 import sys
 from datetime import datetime
 
-from lunar_age import LunarAge
+from predict.lunar_age import LunarAge
 
 
 class DateCheck:

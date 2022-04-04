@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/python_userinput.iml" filepath="$PROJECT_DIR$/.idea/python_userinput.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/lunar_gender.iml" filepath="$PROJECT_DIR$/.idea/lunar_gender.iml" />
     </modules>
   </component>
 </project>

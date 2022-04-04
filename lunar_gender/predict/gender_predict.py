@@ -2,7 +2,7 @@
 # _*_ coding: UTF-8 _*_
 import os
 from datetime import datetime
-from lunar_age import LunarAge
+from predict.lunar_age import LunarAge
 
 
 class GenderPredict:
