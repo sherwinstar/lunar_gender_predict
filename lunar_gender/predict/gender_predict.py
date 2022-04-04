@@ -98,11 +98,11 @@ class GenderPredict:
                     sex = genders[month - 1]
                     predict = True
                     if sex == 'B':
-                        self.gender = 'boy'
+                        self.gender = 'Boy'
                         break
                         pass
                     else:
-                        self.gender = 'girl'
+                        self.gender = 'Girl'
                         break
                         pass
                     pass
