@@ -12,6 +12,7 @@ class GenderPredict:
         self.birthday = birth
         self.gender = ''
         self.predict_month = ''
+        self.age = ''
         self.lunar_age = LunarAge()
         self.load_gender_predict()
         self.load_unable_predict()
@@ -88,11 +89,11 @@ class GenderPredict:
             pass
         predict_date = datetime(year, month, 1)
         self.predict_month = predict_date.strftime('%B')
-        age = self.lunar_age.age(self.birthday)
-        # print(age)
+        self.age = self.lunar_age.age(self.birthday)
+        # print(self.age)
         predict = False
         for dic in self.gender_predict:
-            if int(dic["age"]) == age:
+            if int(dic["age"]) == self.age:
                 genders = dic["genders"]
                 if month <= len(genders):
                     sex = genders[month - 1]

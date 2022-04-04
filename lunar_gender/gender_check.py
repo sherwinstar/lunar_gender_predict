@@ -44,7 +44,7 @@ class GenderCheck:
         gender_predict = GenderPredict(date)
         gender_predict.check()
         if len(gender_predict.gender):
-            print(gender_predict.predict_month + ":  " + gender_predict.gender)
+            print(str(gender_predict.age) + " " + gender_predict.predict_month + " " + gender_predict.gender)
             pass
         pass
 
@@ -52,11 +52,11 @@ class GenderCheck:
 
 
 def test():
-    date = datetime(1996, 1, 18)
+    date = datetime(1990, 1, 18)
     gender_predict = GenderPredict(date)
     gender_predict.check()
     if len(gender_predict.gender):
-        print(gender_predict.predict_month + ":  " + gender_predict.gender)
+        print(str(gender_predict.age) + " " + gender_predict.predict_month + " " + gender_predict.gender)
         pass
     pass
 
