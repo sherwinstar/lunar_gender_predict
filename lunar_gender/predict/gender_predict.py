@@ -19,7 +19,7 @@ class GenderPredict:
 
     def load_gender_predict(self):
         cur_path = os.path.abspath(os.path.dirname(__file__))
-        child_gender_file = cur_path + "/config/age_child_gender"
+        child_gender_file = os.path.dirname(cur_path) + "/config/age_child_gender"
         with open(child_gender_file, 'r') as f:
             data = f.read()
             mapping = data.split("\n")
@@ -39,7 +39,7 @@ class GenderPredict:
 
     def load_unable_predict(self):
         cur_path = os.path.abspath(os.path.dirname(__file__))
-        child_gender_file = cur_path + "/config/unable_predict"
+        child_gender_file = os.path.dirname(cur_path) + "/config/unable_predict"
         with open(child_gender_file, 'r') as f:
             data = f.read()
             mapping = data.split("\n")
