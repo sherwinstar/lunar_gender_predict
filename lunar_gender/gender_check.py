@@ -42,9 +42,29 @@ class GenderCheck:
 
     def check_gender(self, date: datetime):
         gender_predict = GenderPredict(date)
-        gender_predict.check()
-        if len(gender_predict.gender):
-            print(str(gender_predict.age) + " " + gender_predict.predict_month + " " + gender_predict.gender)
+        age, date, gender = gender_predict.check()
+        if len(gender):
+            date_str = date.strftime('%B %Y')
+            print(str(age) + ", " + date_str + ", " + gender)
+            pass
+        pass
+
+    pass
+
+def test2():
+    date = datetime(1990, 1, 18)
+    gender_predict = GenderPredict(date)
+    date_genders = gender_predict.check_next_12_month()
+    for dic in date_genders:
+        date:datetime = dic['date']
+        gender = dic['gender']
+        age = dic['age']
+        date_str = date.strftime('%B %Y')
+        if len(gender):
+            print(str(age) + ", " + date_str + ", " + gender)
+            pass
+        else:
+            print(str(age) + ", " + date_str + ", we cannot predict")
             pass
         pass
 
@@ -54,9 +74,10 @@ class GenderCheck:
 def test():
     date = datetime(1990, 1, 18)
     gender_predict = GenderPredict(date)
-    gender_predict.check()
-    if len(gender_predict.gender):
-        print(str(gender_predict.age) + " " + gender_predict.predict_month + " " + gender_predict.gender)
+    age, date, gender = gender_predict.check()
+    if len(gender):
+        date_str = date.strftime('%B %Y')
+        print(str(age) + ", " + date_str + ", " + gender)
         pass
     pass
 
