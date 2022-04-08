@@ -6,7 +6,7 @@ from flask import Flask, request
 from gender_check import GenderCheck
 
 app = Flask(__name__)
-app.debug = True
+# app.debug = True
 
 
 @app.route('/child_gender', methods=['GET'])
@@ -21,6 +21,13 @@ def child_gender():
             return {
                 "msg": "success",
                 "status": 0,
+                "data": data
+            }
+        elif check.status == 1:
+            data = {'age': check.age, 'date': check.date, 'gender': check.gender}
+            return {
+                "msg": check.message,
+                "status": 1,
                 "data": data
             }
         else:

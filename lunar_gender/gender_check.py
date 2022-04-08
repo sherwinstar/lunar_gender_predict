@@ -12,6 +12,7 @@ class GenderCheck:
         self.age = ''
         self.gender = ''
         self.date = ''
+        self.message = ''
         self.birthday = None
         self.date_genders = []
         date_str = ''
@@ -70,6 +71,10 @@ class GenderCheck:
         age, date, gender = gender_predict.check()
         if len(gender):
             self.status = 0
+            if gender_predict.status == 1:
+                self.status = 1
+                self.message = gender_predict.message
+                pass
             self.date = date.strftime('%B %Y')
             self.age = str(age)
             self.gender = gender

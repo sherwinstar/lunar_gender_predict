@@ -13,6 +13,8 @@ class GenderPredict:
         self.lunar_age = LunarAge()
         self.load_gender_predict()
         self.load_unable_predict()
+        self.status = 0
+        self.message = ''
         pass
 
     def load_gender_predict(self):
@@ -90,8 +92,8 @@ class GenderPredict:
         if self.birthday is None:
             print("input date is not right")
             return age, ''
-        # date = datetime(2022, 5, 5)
-        # date = datetime.today()
+        # date = datetime(2022, 1, 5)
+        date = datetime.today()
         month = date.month
         year = date.year
         for dic in self.unable_predict:
@@ -147,15 +149,12 @@ class GenderPredict:
                 if month > 12:
                     month = 1
                     year = year + 1
-                    predict_date = datetime(year, month, 1)
-                    print("we cannot predict " + predict_date_next.strftime(
-                        '%B') + ", " + "but we will predict " + predict_date.strftime('%B'))
                     pass
-                else:
-                    predict_date = datetime(year, month, 1)
-                    print("we cannot predict " + predict_date_next.strftime(
-                        '%B') + ", " + "but we will predict " + predict_date.strftime('%B'))
-                    pass
+                predict_date = datetime(year, month, 1)
+                self.status = 1
+                self.message = "we cannot predict " + predict_date_next.strftime(
+                    '%B %Y') + ", " + "but we will predict " + predict_date.strftime('%B %Y')
+                print(self.message)
                 break
                 pass
             pass
