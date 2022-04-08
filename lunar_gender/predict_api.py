@@ -3,10 +3,10 @@
 
 
 from flask import Flask, request
+from waitress import serve
 from gender_check import GenderCheck
 
 app = Flask(__name__)
-# app.debug = True
 
 
 @app.route('/child_gender', methods=['GET'])
@@ -70,4 +70,5 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+    # app.run(host='0.0.0.0', port=8080)
+    serve(app, host="0.0.0.0", port=8080)
