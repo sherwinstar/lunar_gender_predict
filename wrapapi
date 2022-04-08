@@ -4,7 +4,7 @@ pip3 install waitress
 cd into the dirctory of lunar_gender, run:
 python3 predict_api.py
 
-when it runs successfully, then open the url in safari or chrome.
+then open such following url in safari, chrome or curl.
 http://127.0.0.1:8080/child_gender?birthday=1995.1.28&type=1
 http://127.0.0.1:8080/child_gender?birthday=1995.1.28&type=0
 http://127.0.0.1:8080/child_gender?birthday=1995.1.28

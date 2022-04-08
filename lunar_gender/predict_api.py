@@ -65,7 +65,12 @@ def child_gender():
 
 @app.route('/', methods=['GET'])
 def index():
-    return 'Predict the child gender based on lunar age of mother\'s birthday.'
+    return '<b>Predict the child gender based on lunar age of mother\'s birthday.</b>' \
+           '<p>http://127.0.0.1:8080/child_gender?birthday=1995.1.28&type=1</p>' \
+           '<p>http://127.0.0.1:8080/child_gender?birthday=1995.1.28&type=0</p>' \
+           '<p>http://127.0.0.1:8080/child_gender?birthday=1995.1.28</p>' \
+           '<p>type default is 0, 0 means next month, 1 means next 12 months</p>' \
+           '<p>birthday is the mother birthday, it can not be empty</p>'
     pass
 
 

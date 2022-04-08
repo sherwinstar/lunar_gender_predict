@@ -84,7 +84,12 @@ class GenderPredict:
                 year = year + 1
                 pass
             pass
-        return date_genders
+        for dic in date_genders:
+            gender = dic['gender']
+            if len(gender):
+                return date_genders
+            pass
+        return []
         pass
 
     def check_month(self, date: datetime):
