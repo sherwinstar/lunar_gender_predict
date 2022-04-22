@@ -19,12 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a3a6a5a-8153-49b5-974b-d13cfbc18ee0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/predict/lunar_age.py" beforeDir="false" afterPath="$PROJECT_DIR$/predict/lunar_age.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/predict_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/predict_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wrapapi" beforeDir="false" />
-    </list>
+    <list default="true" id="6a3a6a5a-8153-49b5-974b-d13cfbc18ee0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

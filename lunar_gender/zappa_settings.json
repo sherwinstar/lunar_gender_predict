@@ -1,0 +1,10 @@
+{
+    "dev": {
+        "app_function": "predict_api.app",
+        "profile_name": "default",
+        "project_name": "lunar-gender",
+        "runtime": "python3.9",
+        "s3_bucket": "zappa-x80qog3tq",
+        "aws_region": "us-west-2"
+    }
+}
