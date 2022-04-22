@@ -4,9 +4,31 @@
 
 from flask import Flask, request
 from waitress import serve
+from predict.lunar_age import LunarAge
 from gender_check import GenderCheck
 
 app = Flask(__name__)
+
+
+@app.route('/lunar_age', methods=['GET'])
+def lunar_age():
+    birthday = request.args.get('birthday', '')
+    lunar = LunarAge()
+    age = lunar.age_from_date(birthday)
+    if age == -1:
+        return {
+            "msg": "error",
+            "status": -1,
+            "data": {}
+        }
+    else:
+        data = {'age': age}
+        return {
+            "msg": "success",
+            "status": 0,
+            "data": data
+        }
+    pass
 
 
 @app.route('/child_gender', methods=['GET'])
@@ -76,4 +98,4 @@ def index():
 
 if __name__ == '__main__':
     # app.run(host='0.0.0.0', port=8080)
-    serve(app, host="0.0.0.0", port=8080)
+    serve(app, host="0.0.0.0", port=80)
