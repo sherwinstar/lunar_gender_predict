@@ -12,44 +12,47 @@ class GenderCheck:
         self.age = ''
         self.gender = ''
         self.date = ''
+        self.month_slug = 0
+        self.year = 2022
+        self.gender_slug = 0
         self.message = ''
         self.birthday = None
         self.date_genders = []
         date_str = ''
         if script:
             if not isinstance(argv, list) or len(argv) == 0:
-                print('input is not right')
+                # print('input is not right')
                 return
                 pass
             date_str = argv[0]
             pass
         else:
             if not isinstance(argv, str):
-                print('input is not right')
+                # print('input is not right')
                 return
                 pass
             date_str = argv
             pass
         dates = date_str.split('.')
         if len(dates) != 3:
-            print('input is not right')
+            # print('input is not right')
             return
             pass
         western_birthday = None
         try:
             western_birthday = datetime(int(dates[0]), int(dates[1]), int(dates[2]))
         except Exception as e:
-            print('input is not right')
+            # print('input is not right')
             return
         pass
 
         if western_birthday is None:
-            print('input is not right')
+            # print('input is not right')
             return
             pass
         today = datetime.today()
         if western_birthday > today:
-            print("the input date is later than today")
+            # print("the input date is later than today")
             return
             pass
         self.birthday = western_birthday
@@ -68,7 +71,7 @@ class GenderCheck:
 
     def check_gender(self):
         gender_predict = GenderPredict(self.birthday)
-        age, date, gender = gender_predict.check()
+        age, date, gender, gender_slug = gender_predict.check()
         if len(gender):
             self.status = 0
             if gender_predict.status == 1:
@@ -76,9 +79,12 @@ class GenderCheck:
                 self.message = gender_predict.message
                 pass
             self.date = date.strftime('%B %Y')
+            self.month_slug = date.month
+            self.year = date.year
             self.age = str(age)
             self.gender = gender
-            print(self.age + ", " + self.date + ", " + self.gender)
+            self.gender_slug = gender_slug
+            # print(self.age + ", " + self.date + ", " + self.gender)
             pass
         pass
 
@@ -90,15 +96,19 @@ class GenderCheck:
             pass
         for dic in date_genders:
             date: datetime = dic['date']
+            month_slug = date.month
+            year = date.year
             gender = dic['gender']
             age = dic['age']
+            gender_slug = dic['gender_slug']
             date_str = date.strftime('%B %Y')
-            self.date_genders.append({'age': age, 'date': date_str, 'gender': gender})
+            self.date_genders.append({'age': age, 'date': date_str, 'gender': gender, 'month_slug': month_slug,
+                                      'year': year, 'gender_slug': gender_slug})
             if len(gender):
-                print(str(age) + ", " + date_str + ", " + gender)
+                # print(str(age) + ", " + date_str + ", " + gender)
                 pass
             else:
-                print(str(age) + ", " + date_str + ", we cannot predict")
+                # print(str(age) + ", " + date_str + ", we cannot predict")
                 pass
             pass
         pass
@@ -116,10 +126,10 @@ def test2():
         age = dic['age']
         date_str = date.strftime('%B %Y')
         if len(gender):
-            print(str(age) + ", " + date_str + ", " + gender)
+            # print(str(age) + ", " + date_str + ", " + gender)
             pass
         else:
-            print(str(age) + ", " + date_str + ", we cannot predict")
+            # print(str(age) + ", " + date_str + ", we cannot predict")
             pass
         pass
 
@@ -132,7 +142,7 @@ def test():
     age, date, gender = gender_predict.check()
     if len(gender):
         date_str = date.strftime('%B %Y')
-        print(str(age) + ", " + date_str + ", " + gender)
+        # print(str(age) + ", " + date_str + ", " + gender)
         pass
     pass
 

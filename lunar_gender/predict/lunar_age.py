@@ -20,20 +20,20 @@ class LunarAge:
     def age_from_date(self, date_str: str):
         dates = date_str.split('.')
         if len(dates) != 3:
-            print('input is not right')
+            # print('input is not right')
             return -1
             pass
         western_birthday = None
         try:
             western_birthday = datetime(int(dates[0]), int(dates[1]), int(dates[2]))
         except Exception as e:
-            print('input is not right')
+            # print('input is not right')
             return -1
         pass
 
         today = datetime.today()
         if western_birthday > today:
-            print("the input date is later than today")
+            # print("the input date is later than today")
             return -1
             pass
 

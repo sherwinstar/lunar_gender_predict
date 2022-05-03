@@ -39,14 +39,16 @@ def child_gender():
     if type == '0':
         check.check_pregrancy_gender(0)
         if check.status == 0:
-            data = {'age': check.age, 'date': check.date, 'gender': check.gender}
+            data = {'age': check.age, 'date': check.date, 'gender': check.gender, 'month_slug': check.month_slug,
+                    'year': check.year, 'gender_slug': check.gender_slug}
             return {
                 "msg": "success",
                 "status": 0,
                 "data": data
             }
         elif check.status == 1:
-            data = {'age': check.age, 'date': check.date, 'gender': check.gender}
+            data = {'age': check.age, 'date': check.date, 'gender': check.gender, 'month_slug': check.month_slug,
+                    'year': check.year, 'gender_slug': check.gender_slug}
             return {
                 "msg": check.message,
                 "status": 1,

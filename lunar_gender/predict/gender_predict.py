@@ -58,7 +58,7 @@ class GenderPredict:
     def check_next_12_month(self):
         date_genders = []
         if self.birthday is None:
-            print("input date is not right")
+            # print("input date is not right")
             return date_genders
         date = datetime.today()
         month = date.month + 1
@@ -70,13 +70,13 @@ class GenderPredict:
 
         while len(date_genders) < 12:
             date = datetime(year, month, 1)
-            age, gender = self.check_month(date)
+            age, gender, gender_slug = self.check_month(date)
             if len(gender):
-                dic = {'age': age, 'date': date, 'gender': gender}
+                dic = {'age': age, 'date': date, 'gender': gender, 'gender_slug': gender_slug}
                 date_genders.append(dic)
                 pass
             else:
-                dic = {'age': age, 'date': date, 'gender': ''}
+                dic = {'age': age, 'date': date, 'gender': '', 'gender_slug': gender}
                 date_genders.append(dic)
             month = month + 1
             if month > 12:
@@ -95,15 +95,16 @@ class GenderPredict:
     def check_month(self, date: datetime):
         age = self.lunar_age.age_after_date(self.birthday, date)
         if self.birthday is None:
-            print("input date is not right")
-            return age, ''
+            # print("input date is not right")
+            return age, '', ''
         # date = datetime(2022, 1, 5)
         date = datetime.today()
         month = date.month
         year = date.year
+
         for dic in self.unable_predict:
             if int(dic['year']) == year and month == int(dic['month']):
-                return age, ''
+                return age, '', ''
                 pass
             pass
 
@@ -112,6 +113,7 @@ class GenderPredict:
 
         # print(self.age)
         predict = False
+        gender_slug = 0
         for dic in self.gender_predict:
             if int(dic["age"]) == age:
                 genders = dic["genders"]
@@ -120,25 +122,27 @@ class GenderPredict:
                     predict = True
                     if sex == 'B':
                         gender = 'Boy'
+                        gender_slug = 1
                         break
                         pass
                     else:
                         gender = 'Girl'
+                        gender_slug = 0
                         break
                         pass
                     pass
                 pass
             pass
         if predict == False:
-            print("the lunar age is beyond predict")
+            # print("the lunar age is beyond predict")
             pass
-        return age, gender
+        return age, gender, gender_slug
         pass
 
     def check(self):
         if self.birthday is None:
-            print("input date is not right")
-            return '', '', ''
+            # print("input date is not right")
+            return '', '', '', ''
         # date = datetime(2022, 1, 5)
         date = datetime.today()
         month = date.month + 1
@@ -159,7 +163,7 @@ class GenderPredict:
                 self.status = 1
                 self.message = "we cannot predict " + predict_date_next.strftime(
                     '%B %Y') + ", " + "but we will predict " + predict_date.strftime('%B %Y')
-                print(self.message)
+                # print(self.message)
                 break
                 pass
             pass
@@ -169,6 +173,7 @@ class GenderPredict:
         age = self.lunar_age.age_after_date(self.birthday, predict_date)
         # print(self.age)
         predict = False
+        gender_slug = 0
         for dic in self.gender_predict:
             if int(dic["age"]) == age:
                 genders = dic["genders"]
@@ -177,20 +182,21 @@ class GenderPredict:
                     predict = True
                     if sex == 'B':
                         gender = 'Boy'
+                        gender_slug = 1
                         break
                         pass
                     else:
                         gender = 'Girl'
+                        gender_slug = 0
                         break
                         pass
                     pass
                 pass
             pass
-        if predict == False:
-            print("the lunar age is beyond predict")
+        if not predict:
+            # print("the lunar age is beyond predict")
             pass
-        return age, predict_date, gender
+        return age, predict_date, gender, gender_slug
         pass
-
 
     pass
