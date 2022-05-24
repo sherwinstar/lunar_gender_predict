@@ -98,7 +98,7 @@ class GenderPredict:
             # print("input date is not right")
             return age, '', ''
         # date = datetime(2022, 1, 5)
-        date = datetime.today()
+        # date = datetime.today()
         month = date.month
         year = date.year
 
